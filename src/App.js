@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import KpiCards from './KpiCards';
+import RevenueChart from './RevenueChart';
+import CustomerGrowthChart from './CustomerGrowthChart';
+import ProfitMarginChart from './ProfitMarginChart';  // Import the new chart
 
 function App() {
+  const [showChart, setShowChart] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="container mt-5" style={{ backgroundColor: '#f8f9fa', minHeight: '100vh', padding: '20px' }}>
+      <h2 className="text-center mb-4">Startup Dashboard</h2>
+      <KpiCards />
+
+      <div className="text-center mb-3">
+        <button 
+          className="btn btn-primary" 
+          onClick={() => setShowChart(!showChart)}
         >
-          Learn React
-        </a>
-      </header>
+          {showChart ? 'Hide' : 'Show'} Revenue Chart
+        </button>
+      </div>
+
+      {showChart && <RevenueChart />}
+      <CustomerGrowthChart />
+      <ProfitMarginChart />  {/* Add new chart here */}
     </div>
   );
 }
