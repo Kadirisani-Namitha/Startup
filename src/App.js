@@ -4,6 +4,7 @@ import KpiCards from './KpiCards';
 import RevenueChart from './RevenueChart';
 import CustomerGrowthChart from './CustomerGrowthChart';
 import ProfitMarginChart from './ProfitMarginChart';  // Import the new chart
+import VaccinationChart from './VaccinationChart';    // <-- Import the vaccination chart
 
 function App() {
   const [showChart, setShowChart] = useState(true);
@@ -25,6 +26,8 @@ function App() {
       {showChart && <RevenueChart />}
       <CustomerGrowthChart />
       <ProfitMarginChart />  {/* Add new chart here */}
+
+      <VaccinationChart />  {/* Add the vaccination chart here */}
     </div>
   );
 }
